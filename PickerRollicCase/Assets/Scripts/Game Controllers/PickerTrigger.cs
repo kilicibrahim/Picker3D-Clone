@@ -8,14 +8,14 @@ public class PickerTrigger : MonoBehaviour
     public static bool onBasketExit = true;
     private void OnTriggerEnter(Collider other)
     {
-        string nameHolder = other.transform.gameObject.name;
+        string nameHolder = other.transform.gameObject.name; //Our Gameobjects have spesific names so that I could use this solition 
         char lastCharacter = nameHolder[nameHolder.Length - 1];
         if (other.gameObject == GameObject.Find("Basket" + lastCharacter)) // we need to know which specific basket entry we are at 
         {
             if(onBasketExit)
             {
             PickerMovement.canMove = false;
-            Debug.Log("stoped");
+        //    Debug.Log("stoped");
             GameEvents.current.BasketEnter(bN);
             onBasketExit = false;
             Invoke("LetPickerGo", 5f);//easy way out, change this and add logic

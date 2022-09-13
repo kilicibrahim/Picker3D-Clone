@@ -9,7 +9,7 @@ public class BasketController : MonoBehaviour
     public int bN;
     public int valueToPass = 20;
 
-    private GameObject[] respawns;
+    private GameObject[] groundObjects;
 
     void Start()
     {
@@ -24,15 +24,15 @@ public class BasketController : MonoBehaviour
         if(bN == this.bN)
         {
             this.transform.Find("PlatformGround").gameObject.SetActive(true); //add animation
-            Debug.Log("Exiting basket");
+            //Debug.Log("Exiting basket");
         }
         
     }
 
-    private void ClearTrack(int lvlN)
+    private void ClearTrack(int lvlN) // reseting the platform 
     {
-        respawns = GameObject.FindGameObjectsWithTag("pGround");
-        foreach(GameObject PG in respawns)
+        groundObjects = GameObject.FindGameObjectsWithTag("pGround");
+        foreach(GameObject PG in groundObjects)
         {
             PG.SetActive(false);
         }

@@ -6,6 +6,11 @@ public class WinCondition : MonoBehaviour
 {
     public int lvlN = 1;
     private bool isLvlFinished = false;
+
+    private void Start()
+    {
+        GameEvents.current.onLvlStart += lvlFinishReset;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Finish")
@@ -19,5 +24,15 @@ public class WinCondition : MonoBehaviour
             }
             
         }
+    }
+
+    void lvlFinishReset(int lvlN)
+    {
+        isLvlFinished = false;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.current.onLvlStart -= lvlFinishReset;
     }
 }

@@ -6,7 +6,7 @@ using TMPro;
 
 public class TapToStart : MonoBehaviour
 {
-    public static int lvlN = 1;
+    //public static int lvlN = 1;
     [SerializeField] private Image clear;
     [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI TTStext;
@@ -22,6 +22,7 @@ public class TapToStart : MonoBehaviour
     {
         clear.enabled = false;
         TTStext.gameObject.SetActive(false);
+        int lvlN = SaveSystem.saveSystem.GetlvlN()+1;
         GameEvents.current.LvlStart(lvlN);
     }
 

@@ -6,7 +6,7 @@ public class PickerMovement : MonoBehaviour
 {
     [SerializeField] float forwardSpeed = 1;
     private Vector3 _mouseButtonDownPosition;
-    private float xBoarder = 3.7f;
+    private float xBoarder = 4.3f;
 
 
 
@@ -16,7 +16,7 @@ public class PickerMovement : MonoBehaviour
     {
         GameEvents.current.onBasketExit += OnPassed;
         GameEvents.current.onLvlFinish += OnFinised;
-        GameEvents.current.onLvlFinish += OnFailed;
+        GameEvents.current.onLvlFinish += OnFailed; //will change after endless platforms implemented
         GameEvents.current.onFailedAttemp += OnFailed;
         GameEvents.current.onLvlStart += OnPassed; // OnPassed method makes canMove true so we can use it on the start too
 
@@ -67,7 +67,8 @@ public class PickerMovement : MonoBehaviour
     }
     private void OnFailed(int bN)
     {
-        Invoke("resetPosition", 1f);
+        resetPosition();
+        //Invoke("resetPosition", 1f);
         canMove = false;
     }
 

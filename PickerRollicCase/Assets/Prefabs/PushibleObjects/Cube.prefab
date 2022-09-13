@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2852589836017050128, guid: a92be6406ed6a98498a7360a8808f646,
         type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: Cube
       objectReference: {fileID: 0}
     - target: {fileID: 2852589836017050131, guid: a92be6406ed6a98498a7360a8808f646,
         type: 3}
@@ -72,5 +72,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 2852589836017050223, guid: a92be6406ed6a98498a7360a8808f646,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852589836017050223, guid: a92be6406ed6a98498a7360a8808f646,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92be6406ed6a98498a7360a8808f646, type: 3}

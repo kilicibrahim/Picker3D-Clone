@@ -6,7 +6,7 @@ using TMPro;
 // In this text we are controlling if we have enough objects to pass the basket checkpoint, if we have enough we are calling BasketExit event else we are calling FailedAttemp event
 public class BasketTrigger : MonoBehaviour
 {
-    public int lvlN = 1; // FIX THIS
+    public int lvlN = 1;
 
     public int bN;
     private int counter = 0;
@@ -16,6 +16,8 @@ public class BasketTrigger : MonoBehaviour
 
     private bool isPassed = false;
     private bool isExitingBasketCalled = false;
+
+    private int temp;
     private void OnTriggerEnter(Collider other)
     {
         waitingBasket(bN);
@@ -26,7 +28,7 @@ public class BasketTrigger : MonoBehaviour
     }
     void waitingBasket(int bN)
     {
-
+        
         if (bN == this.bN)
         {
             if (basketText != null)
@@ -36,7 +38,7 @@ public class BasketTrigger : MonoBehaviour
             counter++;
             if (counter > valueToPass && isPassed ==false)
             {
-                Debug.Log("PASSED!");
+                //Debug.Log("PASSED!");
                 isPassed = true;
             }
             if (!isExitingBasketCalled)
@@ -60,13 +62,26 @@ public class BasketTrigger : MonoBehaviour
     }
     public void CallFailledAttemp()
     {
-        Debug.Log("Failed");
+       // Debug.Log("Failed");
         counter = 0;
         basketText.text = counter + "/" + valueToPass;
         isPassed = false;
         isExitingBasketCalled = false;
         GameEvents.current.FailedAttemp(lvlN);
-    //    GameEvents.current.LvlStart(lvlN);
     }
+
+    //void CheckBasket(int bN) // tryed to 
+    //{
+    //    temp = bN;
+    //    Invoke("CheckBasketMethod", 7);
+    //}
+    //void CheckBasketMethod()
+    //{
+    //    if (!doesBasketHaveAnyObjects && (temp == bN))
+    //    {
+    //        CallFailledAttemp();
+    //    }
+    //    doesBasketHaveAnyObjects = false;
+    //}
 
 }
